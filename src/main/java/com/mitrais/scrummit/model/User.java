@@ -5,6 +5,7 @@ import java.io.Serializable;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -52,9 +53,9 @@ public class User extends Common implements Serializable {
     @Transient
     private String fullname;
 
-    /*@DBRef
+    @DBRef
     @Field(value = "assoc_org_id")
-    private Organization assocOrgId;*/
+    private Organization assocOrgId;
 
     public ObjectId getId() {
         return id;
@@ -135,7 +136,7 @@ public class User extends Common implements Serializable {
 	public void setNewPassword(String newPassword) {
 		this.newPassword = newPassword;
     }
-/*
+
     public Organization getAssocOrgId() {
         return assocOrgId;
     }
@@ -143,7 +144,7 @@ public class User extends Common implements Serializable {
     public void setAssocOrgId(Organization assocOrgId) {
         this.assocOrgId = assocOrgId;
     }
-*/
+
     public String getFullname() {
     	return firstName + " " + lastName;
     }
