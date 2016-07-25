@@ -24,8 +24,8 @@ public class MasterMenu extends Common implements Serializable {
     @Field(value = "menuname")
     private String   menuname;
 
-    @Field(value="cssClass")
-    private String cssClass;
+    @Field(value="cssclass")
+    private String cssclass;
     
     @Field(value="href")
     private String href;
@@ -60,12 +60,12 @@ public class MasterMenu extends Common implements Serializable {
 		this.children = children;
 	}
 
-	public String getCssClass() {
-		return cssClass;
+	public String getCssclass() {
+		return cssclass;
 	}
 
-	public void setCssClass(String cssClass) {
-		this.cssClass = cssClass;
+	public void setCssclass(String cssclass) {
+		this.cssclass = cssclass;
 	}
 
 	public String getHref() {

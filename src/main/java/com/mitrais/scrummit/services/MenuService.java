@@ -4,9 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.BasicQuery;
-import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.http.MediaType;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,7 +48,20 @@ public class MenuService {
 
     @RequestMapping(path = "/MasterMenu/save", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public MasterMenu insert(@RequestBody MasterMenu menu){
-        return menuDAO.insert(menu);
+        MasterMenu mn =  menuDAO.insert(menu);
+        String parentId = menu.getParentId();
+        if(parentId!=null && !parentId.equals("")){
+        	MasterMenu parent = menuDAO.findOne(parentId);
+        	parent.getChildren().add(mn);
+        	menuDAO.save(parent);
+        }
+        
+        return mn;
+    }
+
+    @RequestMapping(path = "/MasterMenu/update", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public MasterMenu update(@RequestBody MasterMenu menu){
+        return menuDAO.save(menu);
     }
 
 }
