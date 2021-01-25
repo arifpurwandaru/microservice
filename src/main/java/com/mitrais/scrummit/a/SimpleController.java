@@ -11,7 +11,7 @@ import hello.model.Athing;
 public class SimpleController {
 
 
-    
+    //perubahan lagi
     @RequestMapping(value="/simpleService", method=RequestMethod.GET)
     public @ResponseBody Athing simpleServ(){
     	return new Athing("SD9393RSF", "This is Simple Service");
