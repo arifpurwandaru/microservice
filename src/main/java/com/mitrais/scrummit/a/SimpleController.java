@@ -10,7 +10,7 @@ import hello.model.Athing;
 @RestController
 public class SimpleController {
 
-
+    //perubahan mybranch lagi
     //perubahan lagi
     @RequestMapping(value="/simpleService", method=RequestMethod.GET)
     public @ResponseBody Athing simpleServ(){
