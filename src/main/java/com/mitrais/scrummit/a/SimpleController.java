@@ -16,5 +16,5 @@ public class SimpleController {
     public @ResponseBody Athing simpleServ(){
     	return new Athing("SD9393RSF", "This is Simple Service");
     }
-    
+    //change 1 Master
 }
